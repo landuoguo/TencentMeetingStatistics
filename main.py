@@ -1,4 +1,4 @@
-# version 1.1.0
+# version 1.1.1
 # Auther landuoguo
 
 import json
@@ -69,11 +69,11 @@ for i1 in conf:
             else:
                 endtime = time.strptime(i3['end'],'%Y-%m-%d %H:%M:%S')
             #开始判断
-            if(endtime>xend and starttime<xstart):
+            if(endtime>=xend and starttime<=xstart):
                 duration += time.mktime(xend)-time.mktime(xstart)
-            elif(endtime>xend and starttime<xend and starttime>xstart):
+            elif(endtime>=xend and starttime<xend and starttime>=xstart):
                 duration += time.mktime(xend)-time.mktime(starttime)
-            elif(starttime<xstart and endtime<xend and endtime>xstart):
+            elif(starttime<=xstart and endtime<=xend and endtime>xstart):
                 duration += time.mktime(endtime)-time.mktime(xstart)
             elif(starttime>=xstart and endtime<=xend):
                 duration += time.mktime(endtime)-time.mktime(starttime)
